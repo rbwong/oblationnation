@@ -1,0 +1,376 @@
+{% load static %}
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+		<!-- BASICS -->
+        <meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>UP Circle of Entrepreneurs</title>
+        <meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="{% static "css/isotope.css" %}" media="screen" />
+		<link rel="stylesheet" href="{% static "js/fancybox/jquery.fancybox.css" %}" type="text/css" media="screen" />
+		<link rel="stylesheet" href="{% static "css/bootstrap.css" %}">
+		<link rel="stylesheet" href="{% static "css/bootstrap-theme.css" %}">
+        <link rel="stylesheet" href="{% static "css/style.css" %}">
+        <link rel="stylesheet" href="{% static "css/font-awesome.css" %}">
+		<!-- skin -->
+		<link rel="stylesheet" href="{% static "skin/default.css" %}">
+    </head>
+
+    <body>
+		<section id="header" class="appear"></section>
+		<div class="navbar navbar-fixed-top" role="navigation" data-0="line-height:100px; height:100px; background-color:rgba(0,0,0,0.3);" data-300="line-height:60px; height:60px; background-color:rgba(0,0,0,1);">
+			 <div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="fa fa-bars color-white"></span>
+					</button>
+					<h1><a class="navbar-brand" href="index.html" data-0="line-height:90px;" data-300="line-height:50px;">UP Circle of Entrepreneurs
+					</a></h1>
+				</div>
+				<div class="navbar-collapse collapse">
+					<ul class="nav navbar-nav" data-0="margin-top:20px;" data-300="margin-top:5px;">
+						<li class="active"><a href="index.html">Home</a></li>
+						<li><a href="#section-partners">partners</a></li>
+						<li><a href="#section-works">Events</a></li>
+					</ul>
+				</div><!--/.navbar-collapse -->
+			</div>
+		</div>
+
+		<section class="featured">
+			<div class="container">
+				<div class="row mar-bot40">
+					<div class="col-md-6 col-md-offset-3">
+
+						<div class="align-center">
+							<img class="logo" src="{% static "img/logo-white.png" %}"></img>
+							<h2 class="slogan">UP Circle of Entrepreneurs</h2>
+							<p>
+							UPCE is a duly recognized student organization based at the College of Business Administration of the University of the Philippines, Diliman.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- services -->
+		<section id="section-services" class="section pad-bot30 bg-white">
+		<div class="container">
+
+			<div class="row mar-bot40">
+				<div class="col-lg-4" >
+					<div class="align-center">
+						<i class="fa fa-university fa-5x mar-bot20"></i>
+						<h4 class="text-bold">Founded</h4>
+						<p>June 18, 1991
+						</p>
+					</div>
+				</div>
+
+				<div class="col-lg-4" >
+					<div class="align-center">
+						<i class="fa fa-envelope-o fa-5x mar-bot20"></i>
+						<h4 class="text-bold">Email</h4>
+						<p>upce.ic24@gmail.com
+						</p>
+					</div>
+				</div>
+
+				<div class="col-lg-4" >
+					<div class="align-center">
+						<i class="fa fa-phone fa-5x mar-bot20"></i>
+						<h4 class="text-bold">Contact no.</h4>
+						<p>000-00-00
+						</p>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+		</section>
+
+		<!-- spacer section:testimonial -->
+		<section id="overview" class="section" data-stellar-background-ratio="0.5">
+		<div class="container">
+			<div class="row">
+					<div class="col-lg-12">
+							<div class="align-center">
+										<div class="overviews pad-top40 pad-bot40 clearfix">
+											<h5>
+												The UNIVERSITY OF THE PHILIPPINES CIRCLE OF ENTREPRENEURS (UPCE) seeks the development and enhancement of the entrepreneurial spirit and entrepreneurial skills of the students in the University. Considered as one of the best and the biggest organization in the college and the university, we serve as the impetus for the emergence of a new consciousness in the graduates of the University, of the role they will play as builders of the national economy through their establishment of small and medium scale business enterprises.
+											</h5>
+										</div>
+
+								</div>
+							</div>
+					</div>
+
+			</div>
+		</div>
+		</section>
+
+		<!-- partners -->
+		<section id="section-partners" class="section appear clearfix">
+		<div class="container">
+
+				<div class="row mar-bot40">
+					<div class="col-md-offset-3 col-md-6">
+						<div class="section-header">
+							<h2 class="section-heading animated" data-animation="bounceInUp">Organization Partners</h2>
+							<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet consectetur, adipisci velit, sed quia non numquam.</p>
+						</div>
+					</div>
+				</div>
+
+					<div class="row align-center mar-bot40">
+						<div class="col-md-3">
+							<div class="team-member">
+								<figure class="member-photo"><img src="{% static "img/partners/ace.jpg" %}" alt="" /></figure>
+								<div class="team-detail">
+									<h4>ACE</h4>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="team-member">
+								<figure class="member-photo"><img src="{% static "img/partners/addidas.jpg" %}" alt="" /></figure>
+								<div class="team-detail">
+									<h4>Addidas</h4>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="team-member">
+								<figure class="member-photo"><img src="{% static "img/partners/wifi nation.jpg" %}" alt="" /></figure>
+								<div class="team-detail">
+								<h4>Wifi Nation</h4>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="team-member">
+								<figure class="member-photo"><img src="{% static "img/partners/oblation.png" %}" alt="" /></figure>
+								<div class="team-detail">
+								<h4>Oblation Nation</h4>
+								</div>
+							</div>
+						</div>
+					</div>
+
+		</div>
+		</section>
+		<!-- /partners -->
+
+		<!-- spacer section:stats -->
+		<section id="parallax1" class="section pad-top40 pad-bot40" data-stellar-background-ratio="0.5">
+			<div class="container">
+            <div class="align-center pad-top40 pad-bot40">
+                <blockquote class="bigquote color-white">Shop Online</blockquote>
+				<p class="color-white"><a href="#">Shop Online on Oblation Nation Now!</a></p>
+            </div>
+			</div>
+		</section>
+
+		<!-- section works -->
+		<section id="section-works" class="section appear clearfix">
+			<div class="container">
+
+				<div class="row mar-bot40">
+					<div class="col-md-offset-3 col-md-6">
+						<div class="section-header">
+							<h2 class="section-heading animated" data-animation="bounceInUp">Events</h2>
+							<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet consectetur, adipisci velit, sed quia non numquam.</p>
+						</div>
+					</div>
+				</div>
+
+                        <div class="row">
+                          <div class="col-md-12">
+                            <div class="row">
+                              <div class="portfolio-items isotopeWrapper clearfix" id="3">
+
+                                <article class="col-md-4 isotopeItem webdesign">
+									<div class="portfolio-item">
+										<img src="{% static "img/portfolio/chubby confections.jpg" %}" alt="" />
+										 <div class="portfolio-desc align-center">
+											<div class="folio-info">
+												<h5><a href="https://www.facebook.com/ChubbyConfections">Chubby Confections</a></h5>
+												<a href="{% static "img/portfolio/chubby confections.jpg" %}" class="fancybox"><i class="fa fa-plus fa-2x"></i></a>
+											 </div>
+										 </div>
+									</div>
+                                </article>
+
+                                <article class="col-md-4 isotopeItem print">
+									<div class="portfolio-item">
+										<img src="{% static "img/portfolio/sparks.jpg" %}" alt="" />
+										 <div class="portfolio-desc align-center">
+											<div class="folio-info">
+												<h5><a href="https://www.facebook.com/SparksRun2014">Sparks 2014</a></h5>
+												<a href="{% static "img/portfolio/sparks.jpg" %}" class="fancybox"><i class="fa fa-plus fa-2x"></i></a>
+											 </div>
+										 </div>
+									</div>
+                                </article>
+
+                                <article class="col-md-4 isotopeItem photography">
+									<div class="portfolio-item">
+										<img src="{% static "img/portfolio/counting stars.png" %}" alt="" />
+										 <div class="portfolio-desc align-center">
+											<div class="folio-info">
+												<h5><a href="https://www.facebook.com/UPCECountingStars">Counting Stars</a></h5>
+												<a href="{% static "img/portfolio/counting stars.png" %}" class="fancybox"><i class="fa fa-plus fa-2x"></i></a>
+											 </div>
+										 </div>
+									</div>
+                                </article>
+
+
+                                <article class="col-md-4 isotopeItem photography">
+									<div class="portfolio-item">
+										<img src="{% static "img/portfolio/brandsale.jpg" %}" alt="" />
+										 <div class="portfolio-desc align-center">
+											<div class="folio-info">
+												<h5><a href="https://www.facebook.com/AdidasBrandSale">Addidas Brandsale</a></h5>
+												<a href="{% static "img/portfolio/brandsale.jpg" %}" class="fancybox"><i class="fa fa-plus fa-2x"></i></a>
+											 </div>
+										 </div>
+									</div>
+                                </article>
+
+                                <article class="col-md-4 isotopeItem photography">
+									<div class="portfolio-item">
+										<img src="{% static "img/portfolio/img5.jpg" %}" alt="" />
+										 <div class="portfolio-desc align-center">
+											<div class="folio-info">
+												<h5><a href="#">Portfolio name</a></h5>
+												<a href="{% static "img/portfolio/img5.jpg" %}" class="fancybox"><i class="fa fa-plus fa-2x"></i></a>
+											 </div>
+										 </div>
+									</div>
+                                </article>
+
+                                <article class="col-md-4 isotopeItem webdesign">
+									<div class="portfolio-item">
+										<img src="{% static "img/portfolio/img6.jpg" %}" alt="" />
+										 <div class="portfolio-desc align-center">
+											<div class="folio-info">
+												<h5><a href="#">Portfolio name</a></h5>
+												<a href="{% static "img/portfolio/img6.jpg" %}" class="fancybox"><i class="fa fa-plus fa-2x"></i></a>
+											 </div>
+										 </div>
+									</div>
+                                </article>
+
+                                <article class="col-md-4 isotopeItem print">
+									<div class="portfolio-item">
+										<img src="{% static "img/portfolio/img7.jpg" %}" alt="" />
+										 <div class="portfolio-desc align-center">
+											<div class="folio-info">
+												<h5><a href="#">Portfolio name</a></h5>
+												<a href="{% static "img/portfolio/img7.jpg" %}" class="fancybox"><i class="fa fa-plus fa-2x"></i></a>
+											 </div>
+										 </div>
+									</div>
+                                </article>
+
+                                <article class="col-md-4 isotopeItem photography">
+									<div class="portfolio-item">
+										<img src="{% static "img/portfolio/img8.jpg" %}" alt="" />
+										 <div class="portfolio-desc align-center">
+											<div class="folio-info">
+												<h5><a href="#">Portfolio name</a></h5>
+												<a href="{% static "img/portfolio/img8.jpg" %}" class="fancybox"><i class="fa fa-plus fa-2x"></i></a>
+											 </div>
+										 </div>
+									</div>
+                                </article>
+
+                                <article class="col-md-4 isotopeItem print">
+									<div class="portfolio-item">
+										<img src="{% static "img/portfolio/img9.jpg" %}" alt="" />
+										 <div class="portfolio-desc align-center">
+											<div class="folio-info">
+												<h5><a href="#">Portfolio name</a></h5>
+												<a href="{% static "img/portfolio/img9.jpg" %}" class="fancybox"><i class="fa fa-plus fa-2x"></i></a>
+											 </div>
+										 </div>
+									</div>
+                                </article>
+                                </div>
+
+							</div>
+
+
+							</div>
+                        </div>
+
+			</div>
+		</section>
+
+		<!-- map -->
+		<section id="section-map" class="clearfix">
+			<div id="map"></div>
+		</section>
+
+	<section id="footer" class="section footer">
+		<div class="container">
+			<div class="row animated opacity mar-bot20" data-andown="fadeIn" data-animation="animation">
+				<div class="col-sm-12 align-center">
+                    <ul class="social-network social-circle">
+                        <li><a href="https://www.facebook.com/upce1" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="https://twitter.com/OfficialUPCE" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#" class="icoGoogle" title="Google +"><i class="fa fa-google-plus"></i></a></li>
+                    </ul>
+				</div>
+			</div>
+
+			<div class="row align-center copyright">
+					<div class="col-sm-12"><p>Copyright &copy; 2014 UPCE - by <a href="https://twitter.com/ryandennywong">Ryan Wong</a></p></div>
+			</div>
+		</div>
+
+	</section>
+	<a href="#header" class="scrollup"><i class="fa fa-chevron-up"></i></a>
+
+	<script src="{% static "js/modernizr-2.6.2-respond-1.1.0.min.js" %}"></script>
+	<script src="{% static "js/jquery.js" %}"></script>
+	<script src="{% static "js/jquery.easing.1.3.js" %}"></script>
+    <script src="{% static "js/bootstrap.min.js" %}"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASm3CwaK9qtcZEWYa-iQwHaGi3gcosAJc&sensor=false"></script>
+	<script src="{% static "js/jquery.isotope.min.js" %}"></script>
+	<script src="{% static "js/jquery.nicescroll.min.js" %}"></script>
+	<script src="{% static "js/fancybox/jquery.fancybox.pack.js" %}"></script>
+	<script src="{% static "js/skrollr.min.js" %}"></script>
+	<script src="{% static "js/jquery.scrollTo-1.4.3.1-min.js" %}"></script>
+	<script src="{% static "js/jquery.localscroll-1.2.7-min.js" %}"></script>
+	<script src="{% static "js/stellar.js" %}"></script>
+	<script src="{% static "js/jquery.appear.js" %}"></script>
+	<script src="{% static "js/validate.js" %}"></script>
+    <script src="{% static "js/main.js" %}"></script>
+        <script type="text/javascript">
+            google.maps.event.addDomListener(window, 'load', init);
+
+            function init() {
+                var mapOptions = {
+                    zoom: 18,
+                    center: new google.maps.LatLng(14.655198, 121.073892),
+
+                    styles: [	{		featureType:"all",		elementType:"all",		stylers:[		{			invert_lightness:true		},		{			saturation:10		},		{			lightness:30		},		{			gamma:0.5		},		{			hue:"#53b153"		}		]	}	]
+                };
+
+                var mapElement = document.getElementById('map');
+                var map = new google.maps.Map(mapElement, mapOptions);
+            }
+        </script>
+	</body>
+</html>
