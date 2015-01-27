@@ -1,0 +1,38 @@
+{% extends "shared/base.html" %}
+{% load static %}
+{% load staticfiles %}
+
+
+{% block body %}
+<div class="row">
+    {% for product in products %}
+        <div class="col-md-3 col-xs-12">
+            <div class="item">
+                <div class="product-col">
+                    <div class="image">
+                        <img src="{{ MEDIA_URL }}{{ product.image }}" alt="product" class="img-responsive">
+                    </div>
+                    <div class="caption">
+                        <h4><a href="product.html">{{ product.name }}</a></h4>
+                        <div class="price">
+                            <span class="price-new">{{ product.unit_price }}</span>
+                        </div>
+                        <div class="cart-button button-group">
+                            <a href="/{{ product.category.slug }}/{{ product.slug }}" class="btn btn-order btn-block">
+                                <i class="fa fa-shopping-cart"></i>
+                                Order Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
+
+{% block modal %}
+{% endblock %}
+
+{% block js_bottom %}
+{% endblock %}
