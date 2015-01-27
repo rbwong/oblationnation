@@ -58,7 +58,6 @@ PROJECT_APPS = (
     'shop',
     'order',
     'oblation',
-    'shop.addressmodel',
 )
 INSTALLED_APPS += PROJECT_APPS
 
