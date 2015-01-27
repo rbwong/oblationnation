@@ -33,9 +33,18 @@ class Category(models.Model):
         return self.name
 
 
+class Variation(models.Model):
+    name = models.CharField(max_length=30)
+    description = models.CharField(max_length=80)
+
+    def __unicode__(self):
+        return self.name
+
+
 class Item(Product):
     category = models.ForeignKey(Category, null=True, blank=True)
     description = models.TextField(blank=True, null=True)
+    variations = models.ManyToManyField(Variation)
     image = models.ImageField(upload_to="merchandise/")
     featured = models.BooleanField(default=False)
     class Meta: pass

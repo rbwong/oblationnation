@@ -44,7 +44,7 @@
                         <input type="text" class="form-control" placeholder="Email Address">
                       </div>
                     </div>
-                </div><!-- /.col-lg-6 -->
+                </div>
                 <div class="col-lg-6">
                     <div class="control-group">
                       <label>Phone</label>
@@ -52,42 +52,20 @@
                         <input type="text" class="form-control" placeholder="Phone">
                       </div>
                     </div>
-                </div><!-- /.col-lg-6 -->
+                </div>
             </div><!-- /.row -->
             <h4>Items</h4>
             <div class="row">
-                <div class="col-lg-3">
-                    <div class="control-group">
-                      <label>X-Small</label>
-                      <div class="controls">
-                        <input type="text" class="form-control" placeholder="0">
-                      </div>
+                {% for variation in variations %}
+                    <div class="col-lg-3">
+                        <div class="control-group">
+                          <label>{{ variation.name }}</label>
+                          <div class="controls">
+                            <input type="text" class="form-control" placeholder="0">
+                          </div>
+                        </div>
                     </div>
-                </div><!-- /.col-lg-6 -->
-                <div class="col-lg-3">
-                    <div class="control-group">
-                      <label>Small</label>
-                      <div class="controls">
-                        <input type="text" class="form-control" placeholder="0">
-                      </div>
-                    </div>
-                </div><!-- /.col-lg-6 -->
-                <div class="col-lg-3">
-                    <div class="control-group">
-                      <label>Medium</label>
-                      <div class="controls">
-                        <input type="text" class="form-control" placeholder="0">
-                      </div>
-                    </div>
-                </div><!-- /.col-lg-6 -->
-                <div class="col-lg-3">
-                    <div class="control-group">
-                      <label>Large</label>
-                      <div class="controls">
-                        <input type="text" class="form-control" placeholder="0">
-                      </div>
-                    </div>
-                </div><!-- /.col-lg-6 -->
+                {% endfor %}
             </div><!-- /.row -->
             <h4>Summary</h4>
             <div clas="row">

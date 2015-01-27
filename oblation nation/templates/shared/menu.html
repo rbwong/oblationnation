@@ -20,7 +20,7 @@
                             <ul class="dropdown-menu" role="menu">
                                 {% for category2 in categories %}
                                     {% if category2.parent == category %}
-                                        <li><a tabindex="-1" href="{{ category2.slug }}">{{ category2.name }}</a></li>
+                                        <li><a tabindex="-1" href="/{{ category2.slug }}">{{ category2.name }}</a></li>
                                     {% endif %}
                                 {% endfor %}
                             </ul>

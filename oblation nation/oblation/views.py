@@ -2,7 +2,7 @@ from django.shortcuts import get_object_or_404
 from django.core.urlresolvers import reverse_lazy
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .models import Slide, Banner, Category, Item
+from .models import Slide, Banner, Category, Variation, Item
 
 
 class IndexView(ListView):
@@ -40,4 +40,5 @@ class ProductView(DetailView):
     def get_context_data(self, **kwargs):
         context = super(ProductView, self).get_context_data(**kwargs)
         context['categories'] = Category.objects.all()
+        context['variations'] = self.object.variations.all()
         return context
