@@ -28,9 +28,9 @@ INSTALLED_APPS += (
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'oblationnation',
-        'USER': 'root',
-        'PASSWORD': '5233313.',
+        'NAME': 'oblation',
+        'USER': 'upce',
+        'PASSWORD': '123',
         'HOST': 'localhost',
     }
 }

@@ -27,6 +27,7 @@ def get_env_variable(var_name):
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
+
 TEMPLATE_DIRS = ['templates']
 
 TEMPLATE_CONTEXT_PROCESSORS = (
@@ -43,7 +44,6 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 # Application definition
 
 INSTALLED_APPS = (
-    'grappelli.dashboard',
     'grappelli',
     'filebrowser',
     'django.contrib.admin',
@@ -56,7 +56,9 @@ INSTALLED_APPS = (
 
 PROJECT_APPS = (
     'shop',
-    'order'
+    'order',
+    'oblation',
+    'shop.addressmodel',
 )
 INSTALLED_APPS += PROJECT_APPS
 

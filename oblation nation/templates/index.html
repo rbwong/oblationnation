@@ -5,220 +5,82 @@
 
 {% block body %}
 <!-- Slider Section Starts -->
-	<div class="slider">
-		<div id="main-carousel" class="carousel slide" data-ride="carousel">
-		<!-- Wrapper For Slides Starts -->
-			<div class="carousel-inner">
-				<div class="item">
-					<img src="images/slider-imgs/slide1-img.jpg" alt="Slider" class="img-responsive">
-				</div>
-				<div class="item">
-					<img src="images/slider-imgs/slide2-img.jpg" alt="Slider" class="img-responsive">
-				</div>
-                <div class="item">
-					<img src="images/slider-imgs/slide3-img.jpg" alt="Slider" class="img-responsive">
-				</div>
-				<div class="item active">
-					<img src="images/slider-imgs/slide4-img.jpg" alt="Slider" class="img-responsive">
-				</div>
-			</div>
-		<!-- Wrapper For Slides Ends -->
-		<!-- Controls Starts -->
-			<a class="left carousel-control" href="#main-carousel" role="button" data-slide="prev">
-				<span class="glyphicon glyphicon-chevron-left"></span>
-			</a>
-			<a class="right carousel-control" href="#main-carousel" role="button" data-slide="next">
-				<span class="glyphicon glyphicon-chevron-right"></span>
-			</a>
-		<!-- Controls Ends -->
-		</div>
-	</div>
+    <div class="slider">
+        <div id="main-carousel" class="carousel slide" data-ride="carousel">
+        <!-- Wrapper For Slides Starts -->
+            <div class="carousel-inner">
+                {% for slide in object_list %}
+                    <div class="item {% if forloop.first %}active{% endif %}">
+                        <img src="{{ MEDIA_URL }}{{ slide.image }}" alt="{{ slide.name }}" class="img-responsive">
+                    </div>
+                {% endfor %}
+            </div>
+        <!-- Wrapper For Slides Ends -->
+        <!-- Controls Starts -->
+            <a class="left carousel-control" href="#main-carousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+            <a class="right carousel-control" href="#main-carousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+            </a>
+        <!-- Controls Ends -->
+        </div>
+    </div>
 <!-- Slider Section Ends -->
 <!-- 2 Column Banners Starts -->
-	<div class="col2-banners">
-		<ul class="row list-unstyled">
-			<li class="col-sm-8">
-				<img src="images/banners/2col-banner1.jpg" alt="banners" class="img-responsive">
-			</li>
-			<li class="col-sm-4">
-				<img src="images/banners/2col-banner2.jpg" alt="banners" class="img-responsive">
-			</li>
-		</ul>
-	</div>
+    <div class="col2-banners">
+        <ul class="row list-unstyled">
+            {% for banner in banners %}
+                {% if banner.description == '370px x 207px' %}
+                    <li class="col-sm-4">
+                        <img src="{{ MEDIA_URL }}{{ banner.image }}" alt="{{ banner.name }}" class="img-responsive">
+                    </li>
+                {% elif banner.description == '770px x 207px' %}
+                    <li class="col-sm-8">
+                        <img src="{{ MEDIA_URL }}{{ banner.image }}" alt="{{ banner.name }}" class="img-responsive">
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
 <!-- 2 Column Banners Ends -->
 <!-- Latest Products Starts -->
-	<section class="product-carousel">
-	<!-- Heading Starts -->
-		<h2 class="product-head">Latest Products</h2>
-	<!-- Heading Ends -->
-	<!-- Products Row Starts -->
-		<div class="row">
-			<div class="col-xs-12">
-			<!-- Product Carousel Starts -->
-				<div id="owl-product" class="owl-carousel owl-theme" style="opacity: 1; display: block;">
-				<!-- Product #1 Starts -->
-					<div class="item">
-						<div class="product-col">
-							<div class="image">
-								<img src="images/product-images/1.jpg" alt="product" class="img-responsive">
-							</div>
-							<div class="caption">
-								<h4><a href="product.html">Daily UP Black Shoes</a></h4>
-								<div class="price">
-									<span class="price-new">$199.50</span>
-								</div>
-								<div class="cart-button button-group">
-									<button type="button" class="btn btn-order btn-block">
-										<i class="fa fa-shopping-cart"></i>
-										Order Now
-									</button>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="item">
-						<div class="product-col">
-							<div class="image">
-								<img src="images/product-images/2.jpg" alt="product" class="img-responsive">
-							</div>
-							<div class="caption">
-								<h4><a href="product.html">Angas Shades</a></h4>
-								<div class="price">
-									<span class="price-new">$25.50</span>
-									<span class="price-old">$50.50</span>
-								</div>
-								<div class="cart-button button-group">
-									<button type="button" class="btn btn-order btn-block">
-										<i class="fa fa-shopping-cart"></i>
-										Order Now
-									</button>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="item">
-						<div class="product-col">
-							<div class="image">
-								<img src="images/product-images/3.jpg" alt="product" class="img-responsive">
-							</div>
-							<div class="caption">
-								<h4><a href="product.html">UP Angas Hoodie</a></h4>
-								<div class="price">
-									<span class="price-new">$99.50</span>
-								</div>
-								<div class="cart-button button-group">
-									<button type="button" class="btn btn-order btn-block">
-										<i class="fa fa-shopping-cart"></i>
-										Order Now
-									</button>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="item">
-						<div class="product-col">
-							<div class="image">
-								<img src="images/product-images/4.jpg" alt="product" class="img-responsive">
-							</div>
-							<div class="caption">
-								<h4><a href="product.html">Brown Shoes</a></h4>
-								<div class="price">
-									<span class="price-new">$199.50</span>
-								</div>
-								<div class="cart-button button-group">
-									<button type="button" class="btn btn-order btn-block">
-										<i class="fa fa-shopping-cart"></i>
-										Order Now
-									</button>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="item">
-						<div class="product-col">
-							<div class="image">
-								<img src="images/product-images/5.jpg" alt="product" class="img-responsive">
-							</div>
-							<div class="caption">
-								<h4><a href="product.html">Blue Pekpek Shorts</a></h4>
-								<div class="price">
-									<span class="price-new">$20.00</span>
-								</div>
-								<div class="cart-button button-group">
-									<button type="button" class="btn btn-order btn-block">
-										<i class="fa fa-shopping-cart"></i>
-										Order Now
-									</button>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="item">
-						<div class="product-col">
-							<div class="image">
-								<img src="images/product-images/6.jpg" alt="product" class="img-responsive">
-							</div>
-							<div class="caption">
-								<h4><a href="product.html">Women's Baseball Shirt </a></h4>
-								<div class="price">
-									<span class="price-new">$39.50</span>
-								</div>
-								<div class="cart-button button-group">
-									<button type="button" class="btn btn-order btn-block">
-										<i class="fa fa-shopping-cart"></i>
-										Order Now
-									</button>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="item">
-						<div class="product-col">
-							<div class="image">
-								<img src="images/product-images/7.jpg" alt="product" class="img-responsive">
-							</div>
-							<div class="caption">
-								<h4><a href="product.html">Dessert Shoes</a></h4>
-								<div class="price">
-									<span class="price-new">$199.50</span>
-								</div>
-								<div class="cart-button button-group">
-									<button type="button" class="btn btn-order btn-block">
-										<i class="fa fa-shopping-cart"></i>
-										Order Now
-									</button>
-								</div>
-							</div>
-						</div>
-					</div>
-				<!-- Product #1 Ends -->
-				<!-- Product #2 Starts -->
-
-				<!-- Product #2 Ends -->
-				<!-- Product #3 Starts -->
-
-				<!-- Product #3 Ends -->
-				<!-- Product #4 Starts -->
-
-				<!-- Product #4 Ends -->
-				<!-- Product #5 Starts -->
-
-				<!-- Product #5 Ends -->
-				<!-- Product #6 Starts -->
-
-				<!-- Product #6 Ends -->
-				<!-- Product #7 Starts -->
-
-				<!-- Product #7 Ends -->
-				<!-- Product #8 Starts -->
-
-				<!-- Product #8 Ends -->
-				<div class="owl-controls clickable"><div class="owl-buttons"><div class="owl-prev"><span class="glyphicon glyphicon-chevron-left"></span></div><div class="owl-next"><span class="glyphicon glyphicon-chevron-right"></span></div></div></div></div>
-			<!-- Product Carousel Ends -->
-			</div>
-		</div>
-	<!-- Products Row Ends -->
-	</section>
+    <section class="product-carousel">
+    <!-- Heading Starts -->
+        <h2 class="product-head">Latest Products</h2>
+    <!-- Heading Ends -->
+    <!-- Products Row Starts -->
+        <div class="row">
+            <div class="col-xs-12">
+            <!-- Product Carousel Starts -->
+                <div id="owl-product" class="owl-carousel owl-theme" style="opacity: 1; display: block;">
+                    {% for product in featured %}
+                        <div class="item">
+                            <div class="product-col">
+                                <div class="image">
+                                    <img src="{{ MEDIA_URL }}{{ product.image }}" alt="product" class="img-responsive">
+                                </div>
+                                <div class="caption">
+                                    <h4><a href="product.html">{{ product.name }}</a></h4>
+                                    <div class="price">
+                                        <span class="price-new">{{ product.unit_price }}</span>
+                                    </div>
+                                    <div class="cart-button button-group">
+                                        <a href="/{{ product.category.slug }}/{{ product.slug }}" class="btn btn-order btn-block">
+                                            <i class="fa fa-shopping-cart"></i>
+                                            Order Now
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                <div class="owl-controls clickable"><div class="owl-buttons"><div class="owl-prev"><span class="glyphicon glyphicon-chevron-left"></span></div><div class="owl-next"><span class="glyphicon glyphicon-chevron-right"></span></div></div></div></div>
+            <!-- Product Carousel Ends -->
+            </div>
+        </div>
+    <!-- Products Row Ends -->
+    </section>
 <!-- Latest Products Ends -->
 {% endblock %}
 

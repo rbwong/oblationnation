@@ -1,7 +1,7 @@
 //MAGNIFIC POPUP
 $(document).ready(function() {
   $('.images-block').magnificPopup({
-    delegate: 'a', 
+    delegate: 'a',
     type: 'image',
     gallery: {
       enabled: true
@@ -12,13 +12,15 @@ $(document).ready(function() {
 (function($) {
 
   "use strict";
-	
-  // TOOLTIP	
+
+  $('.carousel').carousel()
+
+  // TOOLTIP
   $(".header-links .fa, .tool-tip").tooltip({
 	placement: "bottom"
   });
   $(".btn-wishlist, .btn-compare, .display .fa").tooltip('hide');
-  
+
   // Product Owl Carousel
 	$("#owl-product").owlCarousel({
 		autoPlay: false, //Set AutoPlay to 3 seconds
@@ -34,6 +36,6 @@ $(document).ready(function() {
   $('.nav-tabs a').click(function (e) {
     e.preventDefault();
 	$(this).tab('show');
-  });	
-	
+  });
+
 })(jQuery);

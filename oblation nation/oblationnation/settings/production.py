@@ -17,7 +17,7 @@ PROJECT_PATH = os.path.join(SETTINGS_DIR, os.pardir)
 PROJECT_PATH = os.path.abspath(PROJECT_PATH)
 
 TEMPLATE_PATH = os.path.join(PROJECT_PATH, 'templates')
-STATIC_PATH = os.path.join(PROJECT_PATH, 'static')
+STATIC_PATH = os.path.join(PROJECT_PATH, 'static-shared')
 
 
 # Quick-start development settings - unsuitable for production
