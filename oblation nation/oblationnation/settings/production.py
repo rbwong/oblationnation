@@ -7,21 +7,7 @@ https://docs.djangoproject.com/en/1.7/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.7/ref/settings/
 """
-
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-import os
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-SETTINGS_DIR = os.path.dirname(__file__)
-
-PROJECT_PATH = os.path.join(SETTINGS_DIR, os.pardir)
-PROJECT_PATH = os.path.abspath(PROJECT_PATH)
-
-TEMPLATE_PATH = os.path.join(PROJECT_PATH, 'templates')
-STATIC_PATH = os.path.join(PROJECT_PATH, 'static-shared')
-
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
+from .base import * # import common settings
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'h+7_66pqb-^n42wg#&dx0zj*&hgp-p5up0*nh16pw^mli7mfgo'
@@ -33,76 +19,31 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
-# Application definition
-
-INSTALLED_APPS = (
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'shop',
-    'order'
+INSTALLED_APPS += (
+    'django_extensions',
 )
-
-MIDDLEWARE_CLASSES = (
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-)
-
-ROOT_URLCONF = 'oblationnation.urls'
-
-WSGI_APPLICATION = 'oblationnation.wsgi.application'
-
 
 # Database
-# https://docs.djangoproject.com/en/1.7/ref/settings/#databases
-
+# https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'oblationnation',
-        'USER': 'root',
-        'PASSWORD': '5233313.',
+        'NAME': 'oblation',
+        'USER': 'upce',
+        'PASSWORD': '123',
         'HOST': 'localhost',
-        'PORT': '',
     }
 }
 
-# Internationalization
-# https://docs.djangoproject.com/en/1.7/topics/i18n/
-
-LANGUAGE_CODE = 'en-us'
-
-TIME_ZONE = 'UTC'
-
-USE_I18N = True
-
-USE_L10N = True
-
-USE_TZ = True
-
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.7/howto/static-files/
+# Email service
+# We will only use the console email backend for development and debugging
+# purposes.
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = (
-    STATIC_PATH,
-)
+STATIC_ROOT = 'static'
 
-TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-    TEMPLATE_PATH,
-)
+MEDIA_URL = '/media/'
 
+MEDIA_ROOT = 'media'
