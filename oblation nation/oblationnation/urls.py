@@ -1,7 +1,7 @@
 from django.conf.urls import patterns, include, url
 from django.conf.urls.static import static
 from shop import urls as shop_urls
-from .settings import local
+from settings import MEDIA_ROOT, MEDIA_URL
 from django.contrib import admin
 admin.autodiscover()
 
@@ -18,5 +18,4 @@ urlpatterns = patterns('',
                        )
 
 
-urlpatterns += static(local.MEDIA_URL, document_root=local.MEDIA_ROOT)
-urlpatterns += static(local.STATIC_URL, document_root=local.STATIC_ROOT)
+urlpatterns += static(MEDIA_URL, document_root=MEDIA_ROOT)
