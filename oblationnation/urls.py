@@ -9,12 +9,12 @@ urlpatterns = patterns('',
                        # Examples:
                        # url(r'^$', 'django_project.views.home', name='home'),
                        url(r'^shop/', include(shop_urls)),
-                       url(r'^', include('order.urls')),
-                       url(r'^', include('oblation.urls')),
                        url(r'^grappelli/', include('grappelli.urls')),
                        url(r'^admin/doc/',
                            include('django.contrib.admindocs.urls')),
                        url(r'^admin/', include(admin.site.urls)),
+                       url(r'^', include('order.urls')),
+                       url(r'^', include('oblation.urls')),
                        )
 
 
