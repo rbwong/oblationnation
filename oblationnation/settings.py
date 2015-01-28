@@ -17,10 +17,10 @@ PROJECT_PATH = os.path.join(SETTINGS_DIR, os.pardir)
 PROJECT_PATH = os.path.abspath(PROJECT_PATH)
 
 TEMPLATE_PATH = os.path.join(PROJECT_PATH, 'templates')
-STATIC_PATH = os.path.join(PROJECT_PATH,'static-shared')
+STATIC_PATH = os.path.join(PROJECT_PATH,'static')
 
-MEDIA_ROOT = os.path.join(PROJECT_PATH, 'media')
-MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(PROJECT_PATH, 'static/media')
+MEDIA_URL = '/static/media/'
 
 # Handling missing secret keys
 # From Two Scoops of Django
@@ -59,14 +59,6 @@ DATABASES = {
         'HOST': 'localhost',
     }
 }
-
-TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-    TEMPLATE_PATH,
-)
-
 
 TEMPLATE_CONTEXT_PROCESSORS = (
     "django.contrib.auth.context_processors.auth",
@@ -129,10 +121,21 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATIC_ROOT = "/opt/oblationnation/static/"
+
+MEDIA_ROOT = os.path.join(STATIC_ROOT, 'media')
+MEDIA_URL = '/static/media/'
+
 STATICFILES_DIRS = (
     STATIC_PATH,
 )
 
+TEMPLATE_DIRS = (
+    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
+    # Always use forward slashes, even on Windows.
+    # Don't forget to use absolute paths, not relative paths.
+    TEMPLATE_PATH,
+)
 # Django-Grappelli Settings
 
 GRAPPELLI_ADMIN_TITLE="Oblation Nation"
