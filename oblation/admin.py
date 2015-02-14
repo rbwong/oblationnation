@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Slide, Banner, Category, Variation, Item
+from .models import Slide, Banner, Category, Variation, Claiming, Payment, Item
 
 
 class SlideAdmin(admin.ModelAdmin):
@@ -13,6 +13,14 @@ class BannerAdmin(admin.ModelAdmin):
 
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ('parent', 'name', 'slug')
+
+
+class ClaimingAdmin(admin.ModelAdmin):
+    list_display = ('name',)
+
+
+class PaymentAdmin(admin.ModelAdmin):
+    list_display = ('name',)
 
 
 class VariationAdmin(admin.ModelAdmin):
@@ -32,5 +40,7 @@ class ItemAdmin(admin.ModelAdmin):
 admin.site.register(Slide, SlideAdmin)
 admin.site.register(Banner, BannerAdmin)
 admin.site.register(Category, CategoryAdmin)
+admin.site.register(Claiming, ClaimingAdmin)
+admin.site.register(Payment, PaymentAdmin)
 admin.site.register(Variation, VariationAdmin)
 admin.site.register(Item, ItemAdmin)

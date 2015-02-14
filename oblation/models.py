@@ -35,7 +35,22 @@ class Category(models.Model):
 
 class Variation(models.Model):
     name = models.CharField(max_length=30)
+    slug = models.CharField(max_length=80)
     description = models.CharField(max_length=80)
+
+    def __unicode__(self):
+        return self.name
+
+
+class Claiming(models.Model):
+    name = models.CharField(max_length=30)
+
+    def __unicode__(self):
+        return self.name
+
+
+class Payment(models.Model):
+    name = models.CharField(max_length=30)
 
     def __unicode__(self):
         return self.name
@@ -45,6 +60,8 @@ class Item(Product):
     category = models.ForeignKey(Category, null=True, blank=True)
     description = models.TextField(blank=True, null=True)
     variations = models.ManyToManyField(Variation)
+    claiming = models.ManyToManyField(Claiming)
+    payment = models.ManyToManyField(Payment)
     image = models.ImageField(upload_to="merchandise/")
     featured = models.BooleanField(default=False)
     class Meta: pass

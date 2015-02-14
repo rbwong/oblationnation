@@ -1,0 +1,33 @@
+{% extends "shared/base.html" %}
+{% load static %}
+{% load staticfiles %}
+{% load url from future %}
+{% load bootstrap3 %}
+
+{% block body_menu %}{% include "shared/menu.html" %}{% endblock %}
+{% block body %}
+<div class="row">
+    <div class="col-md-8 col-xs-12">
+        <h3>FAQ’s</h3>
+        <ol>
+        <li>How do I place my order?</li>
+        <p>Accomplish the order form for each merchandise on or before the ordering period. Please do not use nicknames and make sure that your contact number and email address is correct.</p>
+        <li>What payment methods are offered?</li>
+        <p>You can pay cash directly at the UPCE Tambayan or deposit it in UPCE's BPI
+savings account (Loyola Heights Branch) then send a copy of your deposit slip to UPOblationNation@gmail.com.
+
+                 Account Name: UP Circle of Entrepreneurs
+                 Account Number: 009603-0010-68
+</p>
+        <li>How long do i have to wait for delivery?</li>
+        <p>Delivery date is approximately 1-3 days after the specified claiming date.</p>
+        </ol>
+    </div>
+</div>
+{% endblock %}
+
+{% block modal %}
+{% endblock %}
+
+{% block js_bottom %}
+{% endblock %}

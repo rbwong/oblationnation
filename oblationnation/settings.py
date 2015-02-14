@@ -63,11 +63,15 @@ DATABASES = {
 # Application definition
 
 INSTALLED_APPS = (
+    'order',
+    'oblation',
     'grappelli',
     'filebrowser',
+    'bootstrap3',
+    'crispy_forms',
     'django_extensions',
+    'post_office',
     'shop',
-    'shop.addressmodel',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -77,8 +81,7 @@ INSTALLED_APPS = (
 )
 
 PROJECT_APPS = (
-    'order',
-    'oblation',
+
 )
 INSTALLED_APPS += PROJECT_APPS
 
@@ -94,6 +97,16 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'oblationnation.urls'
 
 WSGI_APPLICATION = 'oblationnation.wsgi.application'
+
+SOUTH_MIGRATION_MODULES = {
+    "post_office": "post_office.south_migrations",
+}
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'ryan.wong022@gmail.com'
+EMAIL_HOST_PASSWORD = 'underdog5233313.'
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
@@ -125,12 +138,15 @@ TEMPLATE_DIRS = (
     # Don't forget to use absolute paths, not relative paths.
     TEMPLATE_PATH,
 )
+
 # Django-Grappelli Settings
 
 GRAPPELLI_ADMIN_TITLE="Oblation Nation"
 GRAPPELLI_INDEX_DASHBOARD = {
     'django.contrib.admin.site': 'dashboard.CustomIndexDashboard'
 }
+
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 # Django-FileBrowser Settings
 FILEBROWSER_DIRECTORY='uploads/'
@@ -141,4 +157,7 @@ FILEBROWSER_OVERWRITE_EXISTING = True
 # Email service
 # We will only use the console email backend for development and debugging
 # purposes.
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+# Django-Shop Settings
+SHOP_CART_MODIFIERS= ['shop_simplevariations.cart_modifier.ProductOptionsModifier', 'shop_simplevariations.cart_modifier.TextOptionsModifier']

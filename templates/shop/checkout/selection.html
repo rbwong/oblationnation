@@ -1,0 +1,17 @@
+{% extends "shop/base.html" %}
+{% load i18n %}
+{% load url from future %}
+
+{% block body %}
+    <h1>Shipping and Billing</h1>
+    <form method="POST" action="{% url 'checkout_selection' %}">
+      {% csrf_token %}
+      <h3>Your shipping address</h3>
+      {{ shipping_address.as_p }}
+      <h3>Payment and Shipping Methods</h3>
+      {{ billing_shipping_form.as_p }}
+      <h3>Extra info</h3>
+      {{ extra_info_form.as_p }}
+      <button type="submit">Save</button>
+    </form>
+{% endblock %}
