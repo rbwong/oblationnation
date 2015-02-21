@@ -2,13 +2,15 @@
 from __future__ import unicode_literals
 
 from django.db import models, migrations
+from django.conf import settings
 
 
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('oblation', '0008_auto_20150127_2141'),
+        migrations.swappable_dependency(settings.AUTH_USER_MODEL),
         ('shop', '__first__'),
+        ('oblation', '0001_initial'),
     ]
 
     operations = [
@@ -43,6 +45,12 @@ class Migration(migrations.Migration):
             model_name='order',
             name='products',
             field=models.ManyToManyField(to='order.OrderProduct'),
+            preserve_default=True,
+        ),
+        migrations.AddField(
+            model_name='order',
+            name='user',
+            field=models.ForeignKey(related_name='order_requests_created', blank=True, to=settings.AUTH_USER_MODEL, null=True),
             preserve_default=True,
         ),
     ]

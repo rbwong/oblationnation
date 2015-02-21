@@ -2,6 +2,15 @@ from shop.models import Product
 from django.db import models
 
 
+class ONProfile(models.Model):
+    contact = models.CharField(max_length=80)
+    email = models.EmailField()
+    shipping = models.IntegerField()
+
+    def __unicode__(self):
+        return self.email
+
+
 class Slide(models.Model):
     name = models.CharField(max_length=80)
     description = models.TextField(blank=True, null=True)

@@ -15,7 +15,7 @@ from. models import OrderProduct
 class OrderAdmin(admin.ModelAdmin):
     search_fields = ['name', 'email']
     list_filter = ('claiming', 'payment')
-    list_display = ('user', 'name', 'email', 'contact', 'address', 'claiming', 'payment')
+    list_display = ('user', 'name', 'email', 'contact', 'address', 'remarks', 'claiming', 'payment')
 
 
 class OrderProductAdmin(admin.ModelAdmin):

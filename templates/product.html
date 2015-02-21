@@ -61,7 +61,7 @@
                         {% for variation in product.variations.all %}
                             <tr id="table-{{ variation.slug }}"><td>{{ product.name }} - {{ variation.name }}</td><td class="subtitle"> x 0</td><td class="table-price">₱0.00</td></tr>
                         {% endfor %}
-                        <tr id="table-shipping"><td></td><td class="subtitle">Shipping and handling fee</td><td>₱50.00</td></tr>
+                        <tr id="table-shipping" data-price="{{ profile.shipping }}"><td></td><td class="subtitle">Shipping and handling fee</td><td>₱50.00</td></tr>
                         <tr id="table-total"><td></td><td class="subtitle">Order total</td><td id="table-total-value">₱0.00</td></tr>
                     </tbody>
                   </table>

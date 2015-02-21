@@ -22,6 +22,7 @@ class Order(models.Model):
     contact = models.CharField(max_length=12)
     email = models.EmailField()
     address = models.CharField(max_length=200)
+    remarks = models.TextField(max_length=400, null=True, blank=True)
     payment = models.CharField(max_length=80)
     claiming = models.CharField(max_length=80)
     products = models.ManyToManyField(OrderProduct)

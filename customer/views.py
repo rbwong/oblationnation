@@ -27,6 +27,7 @@ class ProfileView(SuccessMessageMixin, UpdateView):
 
     def get_context_data(self, **kwargs):
         context = super(ProfileView, self).get_context_data(**kwargs)
+        context['profile'] = ONProfile.objects.all()[:1].get()
         context['user'] = self.request.user
         context['request'] = self.request
         return context

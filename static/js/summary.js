@@ -19,7 +19,7 @@ $( document ).ready(function() {
         $("#table-shipping").hide();
     }
     $('.claiming').change(function(){
-        var price = 50;
+        var price = $('#table-shipping').attr('data-price');
         var total = parseInt($('#table-total-value').html().substring(1, $('#table-total-value').html().length));
 
        if($("#claiming-Shipping:checked").val()?true:false) {

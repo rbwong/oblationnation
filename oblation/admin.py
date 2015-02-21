@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Slide, Banner, Category, Variation, Claiming, Payment, Item
+from .models import Slide, Banner, Category, Variation, Claiming, Payment, Item, ONProfile
 
 
 class SlideAdmin(admin.ModelAdmin):
@@ -37,6 +37,10 @@ class ItemAdmin(admin.ModelAdmin):
                     'active', 'featured', 'date_added', 'last_modified')
 
 
+class ONAdmin(admin.ModelAdmin):
+    list_display = ('contact', 'email', 'shipping')
+
+
 admin.site.register(Slide, SlideAdmin)
 admin.site.register(Banner, BannerAdmin)
 admin.site.register(Category, CategoryAdmin)
@@ -44,3 +48,4 @@ admin.site.register(Claiming, ClaimingAdmin)
 admin.site.register(Payment, PaymentAdmin)
 admin.site.register(Variation, VariationAdmin)
 admin.site.register(Item, ItemAdmin)
+admin.site.register(ONProfile, ONAdmin)
