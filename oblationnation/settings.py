@@ -53,9 +53,9 @@ ALLOWED_HOSTS = []
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'oblation',
-        'USER': 'upce',
-        'PASSWORD': '123',
+        'NAME': 'upceon24',
+        'USER': 'oblationnation',
+        'PASSWORD': 'upce24on',
         'HOST': 'localhost',
     }
 }
@@ -63,6 +63,7 @@ DATABASES = {
 # Application definition
 
 INSTALLED_APPS = (
+    'customer',
     'order',
     'oblation',
     'grappelli',
@@ -72,6 +73,7 @@ INSTALLED_APPS = (
     'django_extensions',
     'post_office',
     'shop',
+    'social.apps.django_app.default',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -92,6 +94,38 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+)
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+   'django.contrib.auth.context_processors.auth',
+   'django.core.context_processors.debug',
+   'django.core.context_processors.i18n',
+   'django.core.context_processors.media',
+   'django.core.context_processors.static',
+   'django.core.context_processors.tz',
+   'django.contrib.messages.context_processors.messages',
+   'social.apps.django_app.context_processors.backends',
+   'social.apps.django_app.context_processors.login_redirect',
+)
+
+AUTHENTICATION_BACKENDS = (
+   'social.backends.facebook.FacebookOAuth2',
+   'social.backends.google.GoogleOAuth2',
+   'social.backends.twitter.TwitterOAuth',
+   'django.contrib.auth.backends.ModelBackend',
+)
+
+SOCIAL_AUTH_PIPELINE = (
+    'social.pipeline.social_auth.social_details',
+    'social.pipeline.social_auth.social_uid',
+    'social.pipeline.social_auth.auth_allowed',
+    'social.pipeline.social_auth.social_user',
+    'social.pipeline.user.get_username',
+    'social.pipeline.user.create_user',
+    'customer.views.save_profile',  # <--- set the import-path to the function
+    'social.pipeline.social_auth.associate_user',
+    'social.pipeline.social_auth.load_extra_data',
+    'social.pipeline.user.user_details'
 )
 
 ROOT_URLCONF = 'oblationnation.urls'
@@ -157,7 +191,16 @@ FILEBROWSER_OVERWRITE_EXISTING = True
 # Email service
 # We will only use the console email backend for development and debugging
 # purposes.
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_BACKEND = 'post_office.EmailBackend'
+POST_OFFICE = {
+    'EMAIL_BACKEND': 'django.core.mail.backends.smtp.EmailBackend'
+}
+
 
 # Django-Shop Settings
 SHOP_CART_MODIFIERS= ['shop_simplevariations.cart_modifier.ProductOptionsModifier', 'shop_simplevariations.cart_modifier.TextOptionsModifier']
+
+#FACEBOOK SETTINGS
+LOGIN_REDIRECT_URL = '/'
+SOCIAL_AUTH_FACEBOOK_KEY = '335968346608731'
+SOCIAL_AUTH_FACEBOOK_SECRET = 'c6f4f116769a22f5418866939fccba11'

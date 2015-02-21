@@ -1,0 +1,29 @@
+{% extends "shared/base.html" %}
+{% load static %}
+{% load staticfiles %}
+{% load url from future %}
+{% load bootstrap3 %}
+
+
+{% block body %}
+<div class="row">
+    <div class="col-md-12">
+        <h3>Profile</h3>
+        {% if messages %}
+        <div class="alert alert-success" role="alert">Profile was updated successfully</div>
+        {% endif %}
+        <form  class="form form-vertical" method="post" action="{% url 'auth:userprofile' %}">
+            <h4>{{ user.get_full_name|default:user.username }}</h4>
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            <input type="submit" value="Save" class="btn btn-primary"/>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% block modal %}
+{% endblock %}
+
+{% block js_bottom %}
+{% endblock %}

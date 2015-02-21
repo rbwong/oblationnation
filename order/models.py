@@ -1,5 +1,6 @@
 from django.db import models
 from oblation.models import Product, Variation
+from django.contrib.auth.models import User
 
 
 class OrderProductManager(models.Manager):
@@ -16,6 +17,7 @@ class OrderProduct(models.Model):
     objects = OrderProductManager()
 
 class Order(models.Model):
+    user = models.ForeignKey(User, null=True, blank=True, related_name='customer_')
     name = models.CharField(max_length=80)
     contact = models.CharField(max_length=12)
     email = models.EmailField()

@@ -20,9 +20,12 @@
                         <div class="header-links">
                             <ul class="list-unstyled list-inline pull-left">
                                 <li><a href="/">Home</a></li>
-                                <li><a href="#">My Account</a></li>
-                                <li><a href="register.html">Register</a></li>
-                                <li><a href="login.html">Login</a></li>
+                                {% if user and not user.is_anonymous %}
+                                    <li><a href="{% url 'auth:userprofile' %}">{{ user.get_full_name|default:user.username }}</a></li>
+                                    <li><a href="{% url 'auth:logout' %}">Logout</a></li>
+                                {% else %}
+                                    <li><a href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}">Login/Register with Facebook</a></li>
+                                {% endif %}
                             </ul>
                         </div>
                     </div>
