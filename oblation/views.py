@@ -51,14 +51,21 @@ class ProductView(CreateView):
     success_url = reverse_lazy('thankyou')
 
     def get_initial(self):
-        user = self.request.user
-        userprofile = UserProfile.objects.get(user=self.request.user)
+        try:
+            user = self.request.user
+            userprofile = UserProfile.objects.get(user=self.request.user)
 
-        return {'name': user.get_full_name, 'email': userprofile.email, 'contact': userprofile.contact, 'address': userprofile.address}
+            return {'name': user.get_full_name, 'email': userprofile.email, 'contact': userprofile.contact, 'address': userprofile.address}
+        except:
+            return {}
 
     def form_valid(self, form):
         form.instance.claiming = self.request.POST['claiming']
         form.instance.payment = self.request.POST['payment']
+
+        #hook user
+        if self.request.user.is_authenticated():
+            form.instance.user = self.request.user
 
         # get items
         for var in Item.objects.get(slug=self.kwargs['product']).variations.all():
@@ -71,8 +78,7 @@ class ProductView(CreateView):
 
         # send mail
         mail.send(
-            'ryan.wong022@gmail.com',  # List of email addresses also accepted
-            'ryan.wong022@gmail.com',
+            form.instance.email,
             subject='My email',
             message='Hi there!',
             html_message='Hi <strong>there</strong>!',
@@ -85,8 +91,10 @@ class ProductView(CreateView):
         context = super(ProductView, self).get_context_data(**kwargs)
 
         context['user'] = self.request.user
-        context['userprofile'] = UserProfile.objects.get(
-            user=self.request.user)
+        try:
+            context['userprofile'] = UserProfile.objects.get(user=self.request.user)
+        except:
+            context['userprofile'] = False
         context['request'] = self.request
 
         context['product'] = get_object_or_404(

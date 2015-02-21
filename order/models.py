@@ -17,7 +17,7 @@ class OrderProduct(models.Model):
     objects = OrderProductManager()
 
 class Order(models.Model):
-    user = models.ForeignKey(User, null=True, blank=True, related_name='customer_')
+    user = models.ForeignKey(User, null=True, blank=True, related_name='%(class)s_requests_created')
     name = models.CharField(max_length=80)
     contact = models.CharField(max_length=12)
     email = models.EmailField()

@@ -13,15 +13,17 @@ from. models import OrderProduct
 
 
 class OrderAdmin(admin.ModelAdmin):
-    search_fields = ['name', 'description']
-    list_display = ('name', 'email', 'contact', 'address')
+    search_fields = ['name', 'email']
+    list_filter = ('claiming', 'payment')
+    list_display = ('user', 'name', 'email', 'contact', 'address', 'claiming', 'payment')
 
 
 class OrderProductAdmin(admin.ModelAdmin):
-    list_filter = ('variation', 'product', 'quantity')
+    search_fields = ['product__name']
+    list_filter = ('variation', 'product__name', 'quantity')
     list_display = ('product', 'variation', 'quantity')
 
 
 admin.site.unregister(Order)
-admin.site.register(MainOrder)
+admin.site.register(MainOrder, OrderAdmin)
 admin.site.register(OrderProduct, OrderProductAdmin)

@@ -53,7 +53,7 @@ ALLOWED_HOSTS = []
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'upceon24',
+        'NAME': 'upce24on',
         'USER': 'oblationnation',
         'PASSWORD': 'upce24on',
         'HOST': 'localhost',
@@ -157,7 +157,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = "/opt/oblationnation/static/"
+STATIC_ROOT = os.path.join(PROJECT_PATH, 'static-shared')
 
 MEDIA_ROOT = os.path.join(STATIC_ROOT, 'media')
 MEDIA_URL = '/static/media/'
