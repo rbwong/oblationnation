@@ -32,7 +32,7 @@
 
             <h4>Claiming Method</h4>
             {% for claiming_method in product.claiming.all %}
-                <input type="radio" name="claiming" value="{{ claiming_method.name }}" {% if forloop.first %} checked="checked" {% endif %}>
+                <input type="radio" class="claiming" id="claiming-{{ claiming_method.name }}" name="claiming" value="{{ claiming_method.name }}" {% if forloop.first %} checked="checked" {% endif %}>
                 {{ claiming_method.name }}{% if not forloop.last %} <br> {% endif %}
             {% endfor %}
 
@@ -43,7 +43,7 @@
                         <div class="control-group">
                           <label>{{ variation.name }}</label>
                           <div class="controls">
-                            <input type="text" class="form-control" value="0" name="variation_{{ variation.slug }}">
+                            <input type="text" class="form-control variation-input" data-previous="0" data-price="{{ product.unit_price }}" data-slug="{{ variation.slug }}" value="0" id="variation-{{ variation.slug }}" name="variation_{{ variation.slug }}">
                           </div>
                         </div>
                     </div>
@@ -58,9 +58,11 @@
                       <tr><th>Item</th><th></th><th>Total</th></tr>
                     </thead>
                     <tbody>
-                      <tr><td>Daily UP Black Shoes - 12" x 2</td><td></td><td>$390.00</td></tr>
-                      <tr><td></td><td class="subtitle">Shipping and handling fee</td><td>$20.00</td></tr>
-                      <tr><td></td><td class="subtitle">Order total</td><td>$410.00</td></tr>
+                        {% for variation in product.variations.all %}
+                            <tr id="table-{{ variation.slug }}"><td>{{ product.name }} - {{ variation.name }}</td><td class="subtitle"> x 0</td><td class="table-price">₱0.00</td></tr>
+                        {% endfor %}
+                        <tr id="table-shipping"><td></td><td class="subtitle">Shipping and handling fee</td><td>₱50.00</td></tr>
+                        <tr id="table-total"><td></td><td class="subtitle">Order total</td><td id="table-total-value">₱0.00</td></tr>
                     </tbody>
                   </table>
             </div>
@@ -74,4 +76,5 @@
 {% endblock %}
 
 {% block js_bottom %}
+<script src="{% static "js/summary.js" %}"></script>
 {% endblock %}
