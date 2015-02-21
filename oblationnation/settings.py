@@ -82,11 +82,6 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
 )
 
-PROJECT_APPS = (
-
-)
-INSTALLED_APPS += PROJECT_APPS
-
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -139,8 +134,8 @@ SOUTH_MIGRATION_MODULES = {
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'ryan.wong022@gmail.com'
-EMAIL_HOST_PASSWORD = 'underdog5233313.'
+EMAIL_HOST_USER = 'upoblationnation@gmail.com'
+EMAIL_HOST_PASSWORD = 'letsgoce'
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/

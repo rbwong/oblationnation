@@ -79,6 +79,7 @@ class ProductView(CreateView):
         # send mail
         mail.send(
             form.instance.email,
+            'upoblationnation@gmail.com',
             subject='My email',
             message='Hi there!',
             html_message='Hi <strong>there</strong>!',
