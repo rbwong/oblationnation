@@ -12,62 +12,68 @@
             <img src="{{ MEDIA_URL }}{{ product.image }}" alt="{{ product.name }}" class="img-responsive">
         </div>
         <div class="caption">
-            <h3><a href="product.html">{{ product.name }}</a></h3>
+            <h3>{{ product.name }}</h3>
+            <h5>₱{{ product.unit_price }}</h5>
             <div class="description">{{ product.description }}</div>
         </div>
     </div>
     <div class="col-md-8 col-xs-12">
         <h3>Order</h3>
-        <form  class="form form-vertical" method="post" action="/{{ category }}/{{ product.slug }}/">
-            <h4>Basic Info</h4>
-            {% csrf_token %}
-            {% bootstrap_form form %}
-            <h4>Items</h4>
+            {% if product.active %}
+                <form  class="form form-vertical" method="post" action="/{{ category }}/{{ product.slug }}/">
+                <h4>Basic Info</h4>
+                {% csrf_token %}
+                {% bootstrap_form form %}
+                <h4>Items</h4>
 
-            <h4>Payment Method</h4>
-            {% for payment_method in product.payment.all %}
-                <input type="radio" name="payment" value="{{ payment_method.name }}" {% if forloop.first %} checked="checked" {% endif %}>
-                {{ payment_method.name }}{% if not forloop.last %} <br> {% endif %}
-            {% endfor %}
-
-            <h4>Claiming Method</h4>
-            {% for claiming_method in product.claiming.all %}
-                <input type="radio" class="claiming" id="claiming-{{ claiming_method.name }}" name="claiming" value="{{ claiming_method.name }}" {% if forloop.first %} checked="checked" {% endif %}>
-                {{ claiming_method.name }}{% if not forloop.last %} <br> {% endif %}
-            {% endfor %}
-
-            <h4>Items</h4>
-            <div class="row">
-                {% for variation in product.variations.all %}
-                    <div class="col-lg-3">
-                        <div class="control-group">
-                          <label>{{ variation.name }}</label>
-                          <div class="controls">
-                            <input type="text" class="form-control variation-input" data-previous="0" data-price="{{ product.unit_price }}" data-slug="{{ variation.slug }}" value="0" id="variation-{{ variation.slug }}" name="variation_{{ variation.slug }}">
-                          </div>
-                        </div>
-                    </div>
+                <h4>Payment Method</h4>
+                {% for payment_method in product.payment.all %}
+                    <input type="radio" name="payment" value="{{ payment_method.name }}" {% if forloop.first %} checked="checked" {% endif %}>
+                    {{ payment_method.name }}{% if not forloop.last %} <br> {% endif %}
                 {% endfor %}
-            </div>
+
+                <h4>Claiming Method</h4>
+                {% for claiming_method in product.claiming.all %}
+                    <input type="radio" class="claiming" id="claiming-{{ claiming_method.name }}" name="claiming" value="{{ claiming_method.name }}" {% if forloop.first %} checked="checked" {% endif %}>
+                    {{ claiming_method.name }}{% if not forloop.last %} <br> {% endif %}
+                {% endfor %}
+
+                <h4>Items</h4>
+                <div class="row">
+                    {% for variation in product.variations.all %}
+                        <div class="col-lg-3">
+                            <div class="control-group">
+                              <label>{{ variation.name }}</label>
+                              <div class="controls">
+                                <input type="text" class="form-control variation-input" data-previous="0" data-price="{{ product.unit_price }}" data-slug="{{ variation.slug }}" value="0" id="variation-{{ variation.slug }}" name="variation_{{ variation.slug }}">
+                              </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
 
 
-            <h4>Summary</h4>
-            <div clas="row">
-                <table class="table table-striped">
-                    <thead>
-                      <tr><th>Item</th><th></th><th>Total</th></tr>
-                    </thead>
-                    <tbody>
-                        {% for variation in product.variations.all %}
-                            <tr id="table-{{ variation.slug }}"><td>{{ product.name }} - {{ variation.name }}</td><td class="subtitle"> x 0</td><td class="table-price">₱0.00</td></tr>
-                        {% endfor %}
-                        <tr id="table-shipping" data-price="{{ profile.shipping }}"><td></td><td class="subtitle">Shipping and handling fee</td><td>₱50.00</td></tr>
-                        <tr id="table-total"><td></td><td class="subtitle">Order total</td><td id="table-total-value">₱0.00</td></tr>
-                    </tbody>
-                  </table>
-            </div>
-            <input type="submit" value="Place Order" class="btn btn-primary"/>
-        </form>
+                <h4>Summary</h4>
+                <div clas="row">
+                    <table class="table table-striped">
+                        <thead>
+                          <tr><th>Item</th><th></th><th>Total</th></tr>
+                        </thead>
+                        <tbody>
+                            {% for variation in product.variations.all %}
+                                <tr id="table-{{ variation.slug }}"><td>{{ product.name }} - {{ variation.name }}</td><td class="subtitle"> x 0</td><td class="table-price">₱0.00</td></tr>
+                            {% endfor %}
+                            <tr id="table-shipping" data-price="{{ profile.shipping }}"><td></td><td class="subtitle">Shipping and handling fee</td><td>₱50.00</td></tr>
+                            <tr id="table-total"><td></td><td class="subtitle">Order total</td><td id="table-total-value">₱0.00</td></tr>
+                        </tbody>
+                      </table>
+                </div>
+                <input type="submit" value="Place Order" class="btn btn-primary"/>
+            </form>
+        {% else %}
+            <p>Unfortunately, this product is out of stock.</p>
+        {% endif %}
+
     </div>
 </div>
 {% endblock %}

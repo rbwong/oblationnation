@@ -1,6 +1,6 @@
 from django.shortcuts import get_object_or_404
 from django.core.urlresolvers import reverse_lazy
-from django.views.generic import ListView
+from django.views.generic import ListView, TemplateView
 from django.views.generic.edit import CreateView
 from .models import Slide, Banner, Category, Item, Variation, ONProfile
 from order.models import Order, OrderProduct
@@ -23,7 +23,7 @@ class IndexView(ListView):
         context['categories'] = Category.objects.all()
         context['banners'] = Banner.objects.filter(active=True)
         context['featured'] = Item.objects.filter(
-            featured=True).order_by('last_modified')
+            featured=True, active=True).order_by('last_modified')
 
         return context
 
@@ -136,4 +136,60 @@ class ProductView(CreateView):
             Item, slug=self.kwargs['product'])
         context['categories'] = Category.objects.all()
         context['category'] = self.kwargs['category']
+        return context
+
+
+class AboutView(TemplateView):
+    template_name = "about.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(AboutView, self).get_context_data(**kwargs)
+
+        context['user'] = self.request.user
+        context['request'] = self.request
+        context['profile'] = ONProfile.objects.all()[:1].get()
+        context['categories'] = Category.objects.all()
+
+        return context
+
+
+class TermsConditionsView(TemplateView):
+    template_name = "termsconditions.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(TermsConditionsView, self).get_context_data(**kwargs)
+
+        context['user'] = self.request.user
+        context['request'] = self.request
+        context['profile'] = ONProfile.objects.all()[:1].get()
+        context['categories'] = Category.objects.all()
+
+        return context
+
+
+class FAQsView(TemplateView):
+    template_name = "faqs.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(FAQsView, self).get_context_data(**kwargs)
+
+        context['user'] = self.request.user
+        context['request'] = self.request
+        context['profile'] = ONProfile.objects.all()[:1].get()
+        context['categories'] = Category.objects.all()
+
+        return context
+
+
+class ThankYouView(TemplateView):
+    template_name = "thankyou.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(ThankYouView, self).get_context_data(**kwargs)
+
+        context['user'] = self.request.user
+        context['request'] = self.request
+        context['profile'] = ONProfile.objects.all()[:1].get()
+        context['categories'] = Category.objects.all()
+
         return context

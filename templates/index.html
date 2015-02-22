@@ -58,17 +58,21 @@
                         <div class="item">
                             <div class="product-col">
                                 <div class="image">
-                                    <img src="{{ MEDIA_URL }}{{ product.image }}" alt="product" class="img-responsive">
+                                    <a href="/{{ product.category.slug }}/{{ product.slug }}/"><img src="{{ MEDIA_URL }}{{ product.image }}" alt="product" class="img-responsive"></a>
                                 </div>
                                 <div class="caption">
-                                    <h4><a href="product.html">{{ product.name }}</a></h4>
+                                    <h4><a href="/{{ product.category.slug }}/{{ product.slug }}/">{{ product.name }}</a></h4>
                                     <div class="price">
-                                        <span class="price-new">{{ product.unit_price }}</span>
+                                        <span class="price-new">₱{{ product.unit_price }}</span>
                                     </div>
                                     <div class="cart-button button-group">
-                                        <a href="/{{ product.category.slug }}/{{ product.slug }}" class="btn btn-order btn-block">
+                                        <a href="/{{ product.category.slug }}/{{ product.slug }}/" class="btn btn-order btn-block">
                                             <i class="fa fa-shopping-cart"></i>
-                                            Order Now
+                                            {% if product.active %}
+                                                Order Now
+                                            {% else %}
+                                                Out of Stock
+                                            {% endif %}
                                         </a>
                                     </div>
                                 </div>
