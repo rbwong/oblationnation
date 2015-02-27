@@ -1,5 +1,6 @@
 from shop.models import Product
 from django.db import models
+from markupfield.fields import MarkupField
 
 
 class ONProfile(models.Model):
@@ -73,6 +74,7 @@ class Item(Product):
     payment = models.ManyToManyField(Payment)
     image = models.ImageField(upload_to="merchandise/")
     featured = models.BooleanField(default=False)
+    payment_claiming_info = MarkupField(null=True, blank=True)
     class Meta: pass
 
     def __unicode__(self):

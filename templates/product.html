@@ -24,15 +24,16 @@
                 <h4>Basic Info</h4>
                 {% csrf_token %}
                 {% bootstrap_form form %}
-                <h4>Items</h4>
 
-                <h4>Payment Method</h4>
+                <h4>Payment and Claiming</h4>
+                <p>{{ product.payment_claiming_info }}</p>
+                <h5>Payment Method</h5>
                 {% for payment_method in product.payment.all %}
                     <input type="radio" name="payment" value="{{ payment_method.name }}" {% if forloop.first %} checked="checked" {% endif %}>
                     {{ payment_method.name }}{% if not forloop.last %} <br> {% endif %}
                 {% endfor %}
 
-                <h4>Claiming Method</h4>
+                <h5>Claiming Method</h5>
                 {% for claiming_method in product.claiming.all %}
                     <input type="radio" class="claiming" id="claiming-{{ claiming_method.name }}" name="claiming" value="{{ claiming_method.name }}" {% if forloop.first %} checked="checked" {% endif %}>
                     {{ claiming_method.name }}{% if not forloop.last %} <br> {% endif %}

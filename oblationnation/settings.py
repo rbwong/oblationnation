@@ -10,6 +10,7 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SETTINGS_DIR = os.path.dirname(__file__)
 
@@ -53,7 +54,7 @@ ALLOWED_HOSTS = []
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'upce24on',
+        'NAME': 'onv1',
         'USER': 'oblationnation',
         'PASSWORD': 'upce24on',
         'HOST': 'localhost',
@@ -72,6 +73,7 @@ INSTALLED_APPS = (
     'crispy_forms',
     'django_extensions',
     'post_office',
+    'markupfield',
     'shop',
     'social.apps.django_app.default',
     'django.contrib.admin',
@@ -152,7 +154,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.join(PROJECT_PATH, 'static-shared')
+STATIC_ROOT = "/opt/oblationnation/static/"
 
 MEDIA_ROOT = os.path.join(STATIC_ROOT, 'media')
 MEDIA_URL = '/static/media/'
@@ -162,9 +164,6 @@ STATICFILES_DIRS = (
 )
 
 TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
     TEMPLATE_PATH,
 )
 
@@ -199,3 +198,5 @@ SHOP_CART_MODIFIERS= ['shop_simplevariations.cart_modifier.ProductOptionsModifie
 LOGIN_REDIRECT_URL = '/'
 SOCIAL_AUTH_FACEBOOK_KEY = '335968346608731'
 SOCIAL_AUTH_FACEBOOK_SECRET = 'c6f4f116769a22f5418866939fccba11'
+
+#MARKUP SETTINGS
